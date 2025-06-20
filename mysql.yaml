@@ -5,7 +5,7 @@
   - name: Install mysql server
     ansible.builtin.dnf:
       name: mysql
-      state: installed
+      state: absent
   
   - name: start and enable mysql server
     ansible.builtin.service:
