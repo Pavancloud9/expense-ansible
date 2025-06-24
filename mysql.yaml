@@ -5,11 +5,11 @@
   - name: install PyMySQL     # This is Library installation using python
     ansible.builtin.pip:
       name: "{{ item }}"
+      executable: pip3.9
     loop:
     - cryptography
     - PyMySQL
-      executable: pip3.9
-
+      
   - name: Install mysql server
     ansible.builtin.dnf:
       name: mysql-server
