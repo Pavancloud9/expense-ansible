@@ -4,7 +4,10 @@
   tasks:
   - name: install PyMySQL     # This is Library installation using python
     ansible.builtin.pip:
-      name: PyMySQL
+      name: "{{ item }}"
+    loop:
+    - cryptography
+    - PyMySQL
       executable: pip3.9
 
   - name: Install mysql server
