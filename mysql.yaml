@@ -2,7 +2,7 @@
   hosts: mysql
   become: yes
   tasks:
-  - name: install PyMySQL     # This is Library installation using python
+  - name: install      # This is Library installation using python ( pip module )
     ansible.builtin.pip:
       name: "{{ item }}"
       executable: pip3.9
