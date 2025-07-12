@@ -26,9 +26,9 @@
       login_host: mysql.pavancloud9.online
     register: mysql_info_command_result
     
-  - name: print the output
-    ansible.builtin.debug:
-      msg: "{{ mysql_info_command_result }}"
+  # - name: print the output
+  #   ansible.builtin.debug:
+  #     msg: "{{ mysql_info_command_result }}"
 
 
     
