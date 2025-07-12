@@ -21,5 +21,8 @@
       login_host: mysql.pavancloud9.online
     register: mysql_server_command_output
 
+  - name: setup root password for mysql-server
+    ansible.builtin.command:  mysql_secure_installation --set-root-pass ExpenseApp@1
     
+
 
