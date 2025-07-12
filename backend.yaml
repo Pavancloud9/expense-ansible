@@ -12,3 +12,10 @@
     ansible.builtin.dnf:
       name: nodejs
       state: present
+
+  - name: create expense user
+    ansible.builtin.user:
+      name: expense
+
+  - name: create /app directory
+  
