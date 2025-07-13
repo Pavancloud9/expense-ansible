@@ -41,10 +41,9 @@
       path: /app
 
   - name: copy service file
-    ansible.builtin.file:
+    ansible.builtin.copy:
       src: backend.service
       dest: /etc/systemd/system/backend.service
-      remote_src: no
 
   - name: import mysql data
     community.mysql.mysql_db:
