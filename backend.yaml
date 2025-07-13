@@ -39,7 +39,7 @@
 
   - name: copy service file
     ansible.builtin.file:
-      src: /home/ec2-user/expense-ansible/backend.service
+      src: backend.service
       dest: /etc/systemd/system/backend.service
 
   
