@@ -54,4 +54,9 @@
       login_host: mysql.pavancloud9.online
       target: /app/schema/backend.sql
 
+  - name: install python libraries
+    ansible.builtin.pip:
+      name: PyMySQL
+      executable: pip3.9
+
   
