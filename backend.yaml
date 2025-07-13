@@ -61,6 +61,14 @@
       login_password: ExpenseApp@1
       login_host: mysql.pavancloud9.online
       target: /app/schema/backend.sql
+  
+  - name: restart and daemon-reload
+    ansible.builtin.systemd_service:
+      daemon_reload: true
+      state: restarted
+      enabled: true
+      name: backend.service
+
 
   
 
