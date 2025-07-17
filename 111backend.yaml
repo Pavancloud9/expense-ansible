@@ -1,0 +1,50 @@
+- name: configure backend server
+  hosts: backend.pavancloud9.online
+  become: yes
+  tasks:
+
+  - name: disable current version nodejs
+    ansible.builtin.command: dnf module disable nodejs -y
+  
+  - name: enable nodejs 20 version
+    ansible.builtin.command: dnf module enable nodejs:20 -y
+  
+  - name: install nodejs
+    ansible.builtin.package:
+      name: nodejs
+      state: installed
+  
+  - name: create user
+    ansible.builtin.user:
+      name: expense
+
+  - name: create app directory
+    ansible.builtin.file:
+      path: /app    
+      state:  directory
+  
+  - name: download backend application file
+    ansible.builtin.get_url:
+      url:  https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+      dest: /tmp/backend.zip
+
+  - name: unzip backend application code file
+    ansible.builtin.unarchive:
+      src: /tmp/backend.zip
+      dest: /app
+
+  - name: install dependencies
+    community.general.npm:
+      path: /app
+
+  - name: copy backend service file
+    ansible.builtin.copy:
+      src: backend.service
+
+  - name: restart and daemon reload
+    ansible.builtin.service:
+      state: restarted
+      daemon_reload: true
+      enabled: 
+  
+
