@@ -40,7 +40,7 @@
       src: expense.conf
       dest: /etc/nginx/default.d/expense.conf
 
-  - name: restart nginx service
+  - name: restart service
     ansible.builtin.module:
       name: nginx
       state: reloaded
